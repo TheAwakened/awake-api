@@ -1,5 +1,11 @@
 class AwakeningsController < ApplicationController
-  before_action :authenticate_user
+  skip_before_action :verify_authenticity_token
+  before_action :authenticate_user, only: :create
+  before_action :set_user, only: :index
+
+  def index
+    @awakenings = @user.awakenings
+  end
 
   def create
     @awakening = current_user.awakenings.build
@@ -17,8 +23,8 @@ class AwakeningsController < ApplicationController
   end
 
   private 
-  def set_awakening
-    @awakening = Awakening.find(params[:id])
+  def set_user
+    @user = User.find(params[:user_id])
   end
 end
 

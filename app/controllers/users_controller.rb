@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -29,7 +30,6 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         format.html { 
-          login(@user)
           redirect_to @user, notice: 'User was successfully created.' 
         }
         format.json { render :show, status: :created, location: @user }

@@ -9,11 +9,9 @@
 	</head>
 
 	<body>
-		<% if login? %>
-			<%= link_to "Logout", logout_path, method: :delete %>
-			<%= form_with model: Awakening.new do |f| %>
-				<%= f.submit 'Awake' %>
-			<% end %>
+		<%= link_to "Logout", logout_path, method: :delete %>
+		<%= form_with model: Awakening.new do |f| %>
+			<%= f.submit 'Awake' %>
 		<% end %>
 		<%= yield %>
 	</body>
