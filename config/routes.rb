@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  post 'user_token' => 'user_token#create'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  
+  root to: 'users#index'
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :awakenings
 end

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Awake</title>
-    <%= csrf_meta_tags %>
+	<head>
+		<title>Awake</title>
+		<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
 
-  <body>
-    <%= yield %>
-  </body>
+	<body>
+		<% if login? %>
+			<%= link_to "Logout", logout_path, method: :delete %>
+			<%= form_with model: Awakening.new do |f| %>
+				<%= f.submit 'Awake' %>
+			<% end %>
+		<% end %>
+		<%= yield %>
+	</body>
 </html>
