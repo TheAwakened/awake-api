@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post 'user_token' => 'user_token#create'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
@@ -9,4 +8,14 @@ Rails.application.routes.draw do
     resources :awakenings, only: :index
   end
   resources :awakenings, only: :create
+
+  namespace :api do
+    post 'authenticate' => 'user_token#create'
+    resources :users do
+      resources :awakenings, only: :index
+    end
+    resources :awakenings, only: :create
+
+    match "*path", to: 'application#not_found', via: :all
+  end
 end
