@@ -28,7 +28,7 @@ Status Code: 404
 ---
 
 ### List User
-To list the all users, included with their awakenings record.
+To list the all users, included with their awakenings record. The `time` of `awakening` is formatted according to ISO 8601, a standardized date format.
 
 ```
 GET /api/users
@@ -43,10 +43,12 @@ Success Response:
   },
   {
     "awakenings": [
-        {
-            "created_at": "2017-11-14T01:27:39.339Z",
-            "id": 8
-        }
+      {
+        "time": "2017-11-14T01:27:39.339Z"
+      },
+      {
+        "time": "2017-11-14T01:37:11.666Z"
+      }
     ],
     "id": 10,
     "username": "test1"
@@ -92,7 +94,7 @@ Status Code: 422
 ---
 
 ### Create Awakening Record
-To create a new awakening record. Note that authentication is needed for this endpoint.
+To create a new awakening record. Note that authentication is needed for this endpoint. The `time` is formatted according to ISO 8601, a standardized date format.
 
 ```
 POST /api/awakenings
@@ -106,8 +108,7 @@ Success Response:
 Status Code: 201
 
 {
-  "created_at": "2017-11-14T01:37:11.666Z",
-  "id": 9
+  "time": "2017-11-14T01:37:11.666Z",
 }
 ```
 Failure Response:

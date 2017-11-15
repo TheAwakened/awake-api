@@ -1,3 +1,3 @@
 class AwakeningSerializer < ActiveModel::Serializer
-  attributes :id, :created_at
+  attribute :created_at, key: :time
 end
