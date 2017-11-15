@@ -35,7 +35,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'pg', ~> '0.18'
+  gem 'pg', '~> 0.18'
 end
 
 group :development, :test do
