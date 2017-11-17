@@ -3,7 +3,7 @@ class API::UsersController < API::ApplicationController
 
   def index
     @users = User.all.preload(:awakenings)
-    render json: @users
+    render json: @users, status: :ok
   end
   
   def create

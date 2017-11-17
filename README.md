@@ -9,21 +9,22 @@ Below are the detail documentation of each available endpoint.
 POST /api/authenticate
 ```
 **Parameter:**
-```
+```json
 "auth": {
   "username": "username",
   "password": "password"
 }
 ```
-**Success Response:**
+Success Response:
+
+**Status Code:** 201
+
 ```
-Status Code: 201
 "jwt": "......"
 ```
-**Failure Response:**
-```
-Status Code: 404
-```
+Failure Response:
+
+**Status Code:** 404
 
 ---
 
@@ -34,26 +35,30 @@ To list the all users, included with their awakenings record. The `time` of `awa
 GET /api/users
 ```
 Success Response:
-```
-[
-  {
-    "awakenings": [],
-    "id": 5,
-    "username": "test"
-  },
-  {
-    "awakenings": [
-      {
-        "time": "2017-11-14T01:27:39.339Z"
-      },
-      {
-        "time": "2017-11-14T01:37:11.666Z"
-      }
-    ],
-    "id": 10,
-    "username": "test1"
-  }
-]
+
+**Status Code:** 200
+```json
+{ 
+  "user": [
+    {
+      "awakenings": [],
+      "id": 5,
+      "username": "test"
+    },
+    {
+      "awakenings": [
+        {
+          "time": "2017-11-14T01:27:39.339Z"
+        },
+        {
+          "time": "2017-11-14T01:37:11.666Z"
+        }
+      ],
+      "id": 10,
+      "username": "test1"
+    }
+  ]
+}
 ```
 
 ---
@@ -65,25 +70,31 @@ To create a new user.
 POST /api/users
 ```
 Parameter:
-```
-"user": {
-  "username": "username",
-  "password": "password",
-  "password_confirmation": "password",
+```json
+{
+  "user": {
+    "username": "username",
+    "password": "password",
+    "password_confirmation": "password"
+  }  
 }
 ```
 Success Response:
-```
-Status Code: 201
+
+**Status Code**: 201
+```json
 {
-  "awakenings": [],
-  "id": 11,
-  "username": "te12st"
+  "user": {
+    "awakenings": [],
+    "id": 11,
+    "username": "te12st"
+  }
 }
 ```
 Failure Response:
-```
-Status Code: 422
+
+**Status Code:** 422
+```json
 {
   "errors": [
     "User name has already been taken"
@@ -104,17 +115,19 @@ Header:
 Authorization:"Bearer your_autehntication_token"
 ```
 Success Response:
-```
-Status Code: 201
 
+**Status Code:** 201
+
+```json
 {
-  "time": "2017-11-14T01:37:11.666Z",
+  "awakening": {
+    "time": "2017-11-14T01:37:11.666Z"
+  }
 }
 ```
 Failure Response:
-```
-Status Code: 401
-```
+
+**Status Code:** 401
 
 ## Bugs and Features Requests
 The project is still under development. 
