@@ -2,7 +2,7 @@
 To be figured out soon.
 
 ## API Endpoint
-Below are the detail documentation of each available endpoint. 
+Below are the detail documentation of each available endpoint.
 
 ### Authenticate
 ```
@@ -28,8 +28,32 @@ Failure Response:
 
 ---
 
+### List Today Awakened User
+To list all the users that has awakened today.
+
+```
+GET /api/today
+```
+**Success Code:** 200
+```json
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "test"
+    },
+    {
+      "id": 2,
+      "username": "test2"
+    }
+  ]
+}
+```
+
+---
+
 ### List User
-To list the all users, included with their awakenings record. The `time` of `awakening` is formatted according to ISO 8601, a standardized date format.
+To list all users.
 
 ```
 GET /api/users
@@ -38,22 +62,13 @@ Success Response:
 
 **Status Code:** 200
 ```json
-{ 
+{
   "user": [
     {
-      "awakenings": [],
       "id": 5,
       "username": "test"
     },
     {
-      "awakenings": [
-        {
-          "time": "2017-11-14T01:27:39.339Z"
-        },
-        {
-          "time": "2017-11-14T01:37:11.666Z"
-        }
-      ],
       "id": 10,
       "username": "test1"
     }
@@ -76,7 +91,7 @@ Parameter:
     "username": "username",
     "password": "password",
     "password_confirmation": "password"
-  }  
+  }
 }
 ```
 Success Response:
@@ -130,6 +145,6 @@ Failure Response:
 **Status Code:** 401
 
 ## Bugs and Features Requests
-The project is still under development. 
+The project is still under development.
 
 If there are any bugs/features request, feel free to create a new issues.

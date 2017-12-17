@@ -5,7 +5,7 @@ class API::UsersController < API::ApplicationController
     @users = User.all.preload(:awakenings)
     render json: @users, status: :ok
   end
-  
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -24,10 +24,10 @@ class API::UsersController < API::ApplicationController
   end
 
   def destroy
-    
+
   end
 
-  private 
+  private
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
