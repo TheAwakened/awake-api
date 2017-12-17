@@ -8,6 +8,6 @@ class UserSerializer < ActiveModel::Serializer
     # It return `nil` if an object is `nil`.
     time = object.awakenings.today.first&.created_at
     return time unless time
-    time.getlocal.strftime("%I:%M %P")
+    time.in_time_zone("Singapore").strftime("%I:%M %P")
   end
 end
