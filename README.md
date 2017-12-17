@@ -27,31 +27,6 @@ Failure Response:
 **Status Code:** 404
 
 ---
-
-### List Today Awakened User
-To list all the users that has awakened today.
-
-```
-GET /api/today
-```
-**Success Code:** 200
-```json
-{
-  "users": [
-    {
-      "id": 1,
-      "username": "test"
-    },
-    {
-      "id": 2,
-      "username": "test2"
-    }
-  ]
-}
-```
-
----
-
 ### List User
 To list all users.
 
@@ -63,21 +38,45 @@ Success Response:
 **Status Code:** 200
 ```json
 {
-  "user": [
+  "users": [
     {
-      "id": 5,
-      "username": "test"
+      "id": 1,
+      "username": "test",
     },
     {
-      "id": 10,
-      "username": "test1"
+      "id": 2,
+      "username": "test2",
     }
   ]
 }
 ```
 
 ---
+### List Users with `awaken_time`
+To list all the users with the current day `awaken_time`. The `awaken_time` is in `GMT+8`.
 
+```
+GET /api/today
+```
+**Success Code:** 200
+```json
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "test",
+      "awaken_time": "01:32 pm"
+    },
+    {
+      "id": 2,
+      "username": "test2",
+      "awaken_time": "04:22 pm"
+    }
+  ]
+}
+```
+
+---
 ### Register New User
 To create a new user.
 
@@ -100,9 +99,9 @@ Success Response:
 ```json
 {
   "user": {
-    "awakenings": [],
     "id": 11,
-    "username": "te12st"
+    "username": "test",
+    "awaken_time": null
   }
 }
 ```
