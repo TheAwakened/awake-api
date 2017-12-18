@@ -1,5 +1,4 @@
 class API::ApplicationController < ApplicationController
-  skip_before_action :verify_authenticity_token
 
   def authenticate_user
     unauthorized and return if request.headers['Authorization'].nil?
