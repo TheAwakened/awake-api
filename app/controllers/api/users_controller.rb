@@ -2,7 +2,7 @@ class API::UsersController < API::ApplicationController
   before_action :authenticate_user, only: [:update, :destroy]
 
   def index
-    @users = User.all.preload(:awakenings)
+    @users = User.all
     render json: @users, status: :ok, fields: [:id, :username]
   end
 
