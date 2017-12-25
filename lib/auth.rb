@@ -3,15 +3,13 @@ require 'jwt'
 module Auth
   class << self
     def encode(payload)
-      JWT.encode payload, secret_key, algorithm 
+      JWT.encode payload, secret_key, algorithm
     end
 
     def decode(token)
-      begin 
         JWT.decode token, secret_key, true, { algorithm: algorithm }
-      rescue 
-        nil
-      end
+    rescue
+      nil
     end
 
     def secret_key
