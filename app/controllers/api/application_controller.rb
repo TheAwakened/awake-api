@@ -1,5 +1,4 @@
 class API::ApplicationController < ApplicationController
-  before_action :authenticate_developer
 
   def authenticate_developer
     unauthorized and return unless request.params['api_key']

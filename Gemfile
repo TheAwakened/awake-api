@@ -13,6 +13,7 @@ gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'rack-cors'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
