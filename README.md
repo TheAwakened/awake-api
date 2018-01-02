@@ -121,6 +121,7 @@ Failure Response:
 ### Create Awakening Record
 To create a new awakening record. Note that authentication is needed for this endpoint. The `time` is formatted according to ISO 8601, a standardized date format.
 
+Every user can only create `awakening` record once per day.
 ```
 POST /api/awakenings
 ```
@@ -142,6 +143,18 @@ Success Response:
 Failure Response:
 
 **Status Code:** 401
+
+or if user have awaken:
+
+**Status Code:** 422
+```json
+{
+  "errors": [
+    "cannot awake more than once"
+  ]
+}
+```
+
 
 ## Bugs and Features Requests
 The project is still under development.
