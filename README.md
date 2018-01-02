@@ -17,7 +17,7 @@ POST /api/authenticate
 ```
 Success Response:
 
-**Status Code:** 201
+**Status Code:** 200
 
 ```
 "jwt": "......"
