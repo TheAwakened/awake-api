@@ -2,6 +2,7 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id, :username
   attribute :awaken_time
 
+  # FIXME: N + 1 Query
   def awaken_time
     # &. is a safe navigation operator.
     # It checks for nil before calling a method.
