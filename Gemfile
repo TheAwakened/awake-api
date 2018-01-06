@@ -43,7 +43,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Profiler for your development and production Ruby rack apps.
-  gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
