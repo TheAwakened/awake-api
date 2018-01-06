@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     post 'authenticate' => 'user_token#create'
     get 'today' => 'entries#index'
-    resources :users do
+    resources :users, except: :index do
       resources :awakenings, only: :index
     end
     resources :awakenings, only: :create

@@ -26,10 +26,10 @@ class API::ApplicationController < ApplicationController
   end
 
   def not_found
-    render json: { error: "Not Found" }, status: 404
+    render json: { errors: ["Not Found"] }, status: 404
   end
 
   def unauthorized
-    render json: { error: "Unauthorized" }, status: 401
+    render json: { errors: ["Unauthorized"] }, status: 401
   end
 end

@@ -1,15 +1,10 @@
 class API::UsersController < API::ApplicationController
   before_action :authenticate_user, only: [:update, :destroy]
 
-  def index
-    @users = User.all
-    render json: @users, status: :ok, fields: [:id, :username]
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
-      render json: @user, status: :created
+      render json:{ message: 'You have succesfully registered.' }, status: :created
     else
       render json: { errors: @user.errors.full_messages }, status: 422
     end

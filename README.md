@@ -20,36 +20,14 @@ Success Response:
 **Status Code:** 200
 
 ```
-"jwt": "......"
+{
+  "message": "You have been authenticated.",
+  "jwt": "......"
+}
 ```
 Failure Response:
 
 **Status Code:** 404
-
----
-### List User
-To list all users.
-
-```
-GET /api/users
-```
-Success Response:
-
-**Status Code:** 200
-```json
-{
-  "users": [
-    {
-      "id": 1,
-      "username": "test",
-    },
-    {
-      "id": 2,
-      "username": "test2",
-    }
-  ]
-}
-```
 
 ---
 ### List Users with `awaken_time`
@@ -98,11 +76,7 @@ Success Response:
 **Status Code**: 201
 ```json
 {
-  "user": {
-    "id": 11,
-    "username": "test",
-    "awaken_time": null
-  }
+  "message": "You have succesfully registered."
 }
 ```
 Failure Response:
@@ -111,7 +85,7 @@ Failure Response:
 ```json
 {
   "errors": [
-    "User name has already been taken"
+    "Username has already been taken"
   ]
 }
 ```
@@ -135,9 +109,7 @@ Success Response:
 
 ```json
 {
-  "awakening": {
-    "time": "2017-11-14T01:37:11.666Z"
-  }
+  "message": "You have successfully awaken."
 }
 ```
 Failure Response:
